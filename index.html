@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M1665 - Proyecto 2 | Encuesta inteligente</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>M1665 - Proyecto 2</h1>
+        <p>Prototipo local con arrays: formulario de satisfacción y panel de analítica por grupo.</p>
+      </div>
+    </header>
+
+    <section class="workspace" aria-label="Encuesta y panel de analítica">
+      <form class="survey-panel" id="surveyForm">
+        <h2>Formulario de encuesta</h2>
+
+        <label for="studentGroup">Grupo</label>
+        <select id="studentGroup" name="studentGroup" required>
+          <option value="DAW1A">DAW1A</option>
+          <option value="DAW1B">DAW1B</option>
+          <option value="ASIX1">ASIX1</option>
+        </select>
+
+        <label for="score">Satisfacción global (1-5)</label>
+        <input id="score" name="score" type="number" min="1" max="5" value="4" required>
+
+        <label for="comment">Comentario opcional</label>
+        <textarea id="comment" name="comment" rows="5" maxlength="220" placeholder="Que mejorarias de la sesion?"></textarea>
+
+        <button type="submit">Guardar respuesta</button>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </form>
+
+      <section class="analytics-panel">
+        <div class="panel-heading">
+          <h2>Panel de analitica</h2>
+          <div class="filter-block">
+            <label for="panelGroup">Filtro del panel</label>
+            <select id="panelGroup">
+              <option value="DAW1A">DAW1A</option>
+              <option value="DAW1B">DAW1B</option>
+              <option value="ASIX1">ASIX1</option>
+              <option value="TODOS">Todos los grupos</option>
+            </select>
+          </div>
+          <p class="panel-note" id="panelNote"></p>
+        </div>
+
+        <div class="kpi-grid" aria-label="Indicadores principales">
+          <article class="kpi-card">
+            <span>Respuestas</span>
+            <strong id="kpiResponses">0</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Media</span>
+            <strong id="kpiAverage">0.00</strong>
+          </article>
+          <article class="kpi-card">
+            <span>% 4 o 5</span>
+            <strong id="kpiPositive">0%</strong>
+          </article>
+          <article class="kpi-card">
+            <span>Grupo analizado</span>
+            <strong id="kpiGroup">DAW1A</strong>
+          </article>
+        </div>
+
+        <section class="module">
+          <h3>Distribucion de valoraciones</h3>
+          <div class="bar-chart" id="ratingBars"></div>
+        </section>
+
+        <section class="module">
+          <h3>Graficos de quesito</h3>
+          <div class="pie-layout">
+            <article class="chart-card">
+              <span class="chart-title">Quesito de puntuaciones</span>
+              <div class="pie-row">
+                <div class="pie" id="scorePie" aria-hidden="true"></div>
+                <ul class="legend" id="scoreLegend"></ul>
+              </div>
+            </article>
+
+            <article class="chart-card">
+              <span class="chart-title">Quesito positivos (4-5)</span>
+              <div class="pie-row">
+                <div class="pie" id="positivePie" aria-hidden="true"></div>
+                <ul class="legend" id="positiveLegend"></ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="module">
+          <h3>Comparativa de media por grupo</h3>
+          <div class="compare-chart" id="groupComparison"></div>
+        </section>
+
+        <section class="module">
+          <div class="list-heading">
+            <h3>Listado de respuestas filtradas</h3>
+            <span id="listCount"></span>
+          </div>
+          <div class="responses-list" id="responsesList"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
