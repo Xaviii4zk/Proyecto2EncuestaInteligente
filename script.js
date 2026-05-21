@@ -51,24 +51,42 @@ formulari.addEventListener("submit", (event) => {
 
 filtreGrup.addEventListener("change", refrescarPanell);
 
-function refrescarPanell() {
-  const grupSeleccionat = filtreGrup.value;
-  const respostesFiltrades = respostes.filter((resposta) => resposta.grup === grupSeleccionat);
+function calcularEstadistiques(dades, grupFiltre) {
+  const respostesFiltrades = grupFiltre === "TOTS"
+    ? dades
+    : dades.filter((resposta) => resposta.grup === grupFiltre);
+
   const total = respostesFiltrades.length;
   const suma = respostesFiltrades.reduce((acumulat, resposta) => acumulat + resposta["puntuació"], 0);
   const mitjana = total === 0 ? 0 : suma / total;
   const positives = respostesFiltrades.filter((resposta) => resposta["puntuació"] >= 4).length;
-  const percentatgePositives = total === 0 ? 0 : (positives / total) * 100;
+  const positivesPercent = total === 0 ? 0 : (positives / total) * 100;
+
+  return {
+    respostes: respostesFiltrades,
+    total,
+    mitjana,
+    positivesPercent
+  };
+}
+
+function refrescarPanell() {
+  const grupFiltre = filtreGrup.value;
+  const estadistiques = calcularEstadistiques(respostes, grupFiltre);
 
   document.querySelector("#notaPanell").textContent =
-    `Mostrant dades del grup seleccionat al formulari: ${grupSeleccionat}`;
-  document.querySelector("#kpiRespostes").textContent = total;
-  document.querySelector("#kpiMitjana").textContent = mitjana.toFixed(2);
-  document.querySelector("#kpiPositives").textContent = `${percentatgePositives.toFixed(1)}%`;
-  document.querySelector("#kpiGrup").textContent = grupSeleccionat;
+    grupFiltre === "TOTS"
+      ? "Mostrant totes les dades."
+      : `Mostrant dades del grup seleccionat al formulari: ${grupFiltre}`;
+  document.querySelector("#kpiRespostes").textContent = estadistiques.total;
+  document.querySelector("#kpiMitjana").textContent =
+    estadistiques.total === 0 ? "-" : estadistiques.mitjana.toFixed(2);
+  document.querySelector("#kpiPositives").textContent =
+    estadistiques.total === 0 ? "0%" : `${estadistiques.positivesPercent.toFixed(1)}%`;
+  document.querySelector("#kpiGrup").textContent = grupFiltre;
 
-  refrescarGrafica(respostesFiltrades);
-  refrescarLlistat(respostesFiltrades);
+  refrescarGrafica(estadistiques.respostes);
+  refrescarLlistat(estadistiques.respostes);
 }
 
 function refrescarGrafica(respostesFiltrades) {
@@ -94,13 +112,37 @@ function refrescarGrafica(respostesFiltrades) {
 function refrescarLlistat(respostesFiltrades) {
   const llista = document.querySelector("#llistaRespostes");
 
+  if (respostesFiltrades.length === 0) {
+    llista.innerHTML = "<article>No hi ha respostes.</article>";
+    return;
+  }
+
   llista.innerHTML = respostesFiltrades.map((resposta) => `
     <article>
       <strong>${resposta.grup} · ${resposta["puntuació"]}/5</strong>
-      <p>${resposta.comentari || "Sense comentari"}</p>
-      <p>${resposta.data}</p>
+      <p>${escaparHtml(resposta.comentari || "Sense comentari")}</p>
+      <p>${formatarData(resposta.data)}</p>
     </article>
   `).join("");
+}
+
+function formatarData(dataISO) {
+  const data = new Date(dataISO);
+
+  if (Number.isNaN(data.getTime())) {
+    return "-";
+  }
+
+  return data.toLocaleDateString("ca-ES");
+}
+
+function escaparHtml(text) {
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 refrescarPanell();

@@ -23,4 +23,16 @@ Apartir de ahora dejame el readme para mi. Yo iré apuntando cambios, curiosidad
 
 // HE COMPROBADO QUE TODO FUNCIONA Y ES ASÍ Y AHORA SOLO VOY A SEGUIR CON EL SIGUIENTE EJERCICIO Y CAMBIAR ALGUNAS COSAS MEJORABLES
 
-M'he donat conta que no estaba fent 
+M'he donat conta que no estaba fent commits i ara he fet un commit.
+
+4 B
+
+// TERCERA PLANTILLA
+
+Ara el que m'agradaria que fesis es que la data només mostris el dia l'any y el mes no altres dades com minut, milisegon, etc. Vull que facis una funcio que sigui "calcularEstadistiques" que calculi respostes i grupFiltre, vull que també tingui total, la Mitjana i les positivesPercent. Vull que grupFiltre que es diu "TOTS" utilitzi totes les dades. Comprova que amb cada grup només hi ha respostes d'aquell grup. Si hi ha 0 respostes no surt error, sortirpa un 0 o un "-".
+
+
+Aqui tengo que decir que me he dado cuenta de que ya lo tenía hecho a medías y la IA no me lo borro y me confundí y se lo tenía que haber borrado. Sin embargo ha mejorado los comentarios, ya no me pone la fecha. Pone mensajes que antes no ponía cuando muestra una clase de DAW.
+
+He revisado lo de la fecha y no me ha gustado así que simplemente le pido que me lo quite y avanzo con el siguiente ejercicio.
+
