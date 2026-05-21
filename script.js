@@ -92,9 +92,9 @@ function refrescarPanell() {
 function refrescarGrafica(respostesFiltrades) {
   const grafica = document.querySelector("#graficaPuntuacions");
   const total = respostesFiltrades.length;
+  const recompte = calcularRecomptePuntuacions(respostesFiltrades);
 
-  grafica.innerHTML = [1, 2, 3, 4, 5].map((puntuacio) => {
-    const quantitat = respostesFiltrades.filter((resposta) => resposta["puntuació"] === puntuacio).length;
+  grafica.innerHTML = recompte.map(({ puntuacio, quantitat }) => {
     const amplada = total === 0 ? 0 : (quantitat / total) * 100;
 
     return `
@@ -109,6 +109,13 @@ function refrescarGrafica(respostesFiltrades) {
   }).join("");
 }
 
+function calcularRecomptePuntuacions(respostesFiltrades) {
+  return [1, 2, 3, 4, 5].map((puntuacio) => ({
+    puntuacio,
+    quantitat: respostesFiltrades.filter((resposta) => resposta["puntuació"] === puntuacio).length
+  }));
+}
+
 function refrescarLlistat(respostesFiltrades) {
   const llista = document.querySelector("#llistaRespostes");
 
@@ -121,19 +128,8 @@ function refrescarLlistat(respostesFiltrades) {
     <article>
       <strong>${resposta.grup} · ${resposta["puntuació"]}/5</strong>
       <p>${escaparHtml(resposta.comentari || "Sense comentari")}</p>
-      <p>${formatarData(resposta.data)}</p>
     </article>
   `).join("");
-}
-
-function formatarData(dataISO) {
-  const data = new Date(dataISO);
-
-  if (Number.isNaN(data.getTime())) {
-    return "-";
-  }
-
-  return data.toLocaleDateString("ca-ES");
 }
 
 function escaparHtml(text) {

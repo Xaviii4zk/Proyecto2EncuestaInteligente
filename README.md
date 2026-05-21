@@ -36,3 +36,14 @@ Aqui tengo que decir que me he dado cuenta de que ya lo tenía hecho a medías y
 
 He revisado lo de la fecha y no me ha gustado así que simplemente le pido que me lo quite y avanzo con el siguiente ejercicio.
 
+Se me ha olvidado poner una captura de como se ve, he revisado que antes no tenía TOTS.
+
+![alt text](image-2.png)
+
+// CUARTA PLANTILLA
+
+Primer de tot vull que treguis la data dels dies. Després vull que crees una gràfica de barres amb les puntuacions de l’1 al 5 segons el filtre seleccionat. Molt important que tens que comprovar que les barres coincideixen amb el recompte real de respostes.
+
+Por lo que he visto, se ve bastante bien y está estructurado como pide. Aún creo que se puedo añadir quizás más css y decorarlo mejor pero de momento veo mejor seguir, con la plantilla añadida se hizo el 4 y 5 y así se ve.
+
+![alt text](image-3.png)
