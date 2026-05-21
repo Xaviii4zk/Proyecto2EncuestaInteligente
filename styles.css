@@ -6,6 +6,11 @@
   --text-suau: #657184;
   --blau: #2f6de6;
   --ombra: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --vermell-fort: #991b1b;
+  --vermell-suau: #dc2626;
+  --groc: #eab308;
+  --verd-suau: #16a34a;
+  --verd-fort: #047857;
 }
 
 * {
@@ -97,6 +102,10 @@ textarea {
   resize: vertical;
 }
 
+textarea::placeholder {
+  color: #9aa4b2;
+}
+
 button {
   margin-top: 28px;
   border: 0;
@@ -179,6 +188,51 @@ button {
   background: var(--blau);
 }
 
+.valoracio-1 .barra-farciment,
+.comentari-card.valoracio-1 {
+  border-color: rgba(153, 27, 27, 0.28);
+}
+
+.valoracio-1 .barra-farciment {
+  background: var(--vermell-fort);
+}
+
+.valoracio-2 .barra-farciment,
+.comentari-card.valoracio-2 {
+  border-color: rgba(220, 38, 38, 0.24);
+}
+
+.valoracio-2 .barra-farciment {
+  background: var(--vermell-suau);
+}
+
+.valoracio-3 .barra-farciment,
+.comentari-card.valoracio-3 {
+  border-color: rgba(234, 179, 8, 0.34);
+}
+
+.valoracio-3 .barra-farciment {
+  background: var(--groc);
+}
+
+.valoracio-4 .barra-farciment,
+.comentari-card.valoracio-4 {
+  border-color: rgba(22, 163, 74, 0.24);
+}
+
+.valoracio-4 .barra-farciment {
+  background: var(--verd-suau);
+}
+
+.valoracio-5 .barra-farciment,
+.comentari-card.valoracio-5 {
+  border-color: rgba(4, 120, 87, 0.28);
+}
+
+.valoracio-5 .barra-farciment {
+  background: var(--verd-fort);
+}
+
 .llista-respostes {
   display: grid;
   gap: 10px;
@@ -187,11 +241,59 @@ button {
 
 .llista-respostes article {
   min-height: 58px;
-  padding: 10px;
+  padding: 12px;
 }
 
 .llista-respostes p {
-  margin: 4px 0 0;
+  margin: 8px 0 0;
+  color: #263241;
+}
+
+.comentari-card {
+  display: grid;
+  gap: 6px;
+  border-left: 5px solid var(--blau);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.comentari-card.valoracio-1 {
+  border-left-color: var(--vermell-fort);
+  background: #fff7f7;
+}
+
+.comentari-card.valoracio-2 {
+  border-left-color: var(--vermell-suau);
+  background: #fffafa;
+}
+
+.comentari-card.valoracio-3 {
+  border-left-color: var(--groc);
+  background: #fffdf0;
+}
+
+.comentari-card.valoracio-4 {
+  border-left-color: var(--verd-suau);
+  background: #f6fdf8;
+}
+
+.comentari-card.valoracio-5 {
+  border-left-color: var(--verd-fort);
+  background: #f1fbf7;
+}
+
+.comentari-grup {
+  width: fit-content;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #e8eef8;
+  color: #1f3b64;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.comentari-puntuacio {
+  font-size: 0.95rem;
 }
 
 @media (max-width: 900px) {

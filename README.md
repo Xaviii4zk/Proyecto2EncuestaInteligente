@@ -47,3 +47,14 @@ Primer de tot vull que treguis la data dels dies. Després vull que crees una gr
 Por lo que he visto, se ve bastante bien y está estructurado como pide. Aún creo que se puedo añadir quizás más css y decorarlo mejor pero de momento veo mejor seguir, con la plantilla añadida se hizo el 4 y 5 y así se ve.
 
 ![alt text](image-3.png)
+
+// QUINTA PLANTILLA
+
+Vull que revisis si ha qualsevol error de ser així vull que ho corregeixis. He comprobat afegint dades pero no he trobat error. Vull que facis un revamp, vull que on està la grafica en comptes de "gràfica" posis Valoracions, en les valoracions posis, x estrelles en comptes de x/5, vull que en els comentaris posis el següent, en comptes de "Llistat" posa "Comentaris" i quan s'afegixi un de nou que posi "Comentaris més recents". Vull que per cada nota, del 1 al 2 i hagi un to de vermell, l'1 serà el més fosc, el 3 serà groc, el 4 i el 5 pasa el mateix que amb el 1 i 2 només que el 1 serà el verd més fort. Vull que aparegui la clase al comentari una miqueta més decorada, abaix la puntuació i abaix de la puntuació el comentari, si es que hi ha. Que en la satisfacció per default es posi el número 1.  Un comentari al comentari opcional així com en gris com a l'imatge que et vaig passar que posi "T'agradat la sessió, digam la teva opinió!".
+
+He querido remodelar un poco el aspecto ya que estaba muy apagado para que sea mejor visualmente y se entienda  mejor para el usuario y ahora me pondré a mirarme el código y ver que es lo que entiendo y que es lo que no entiendo.
+
+Finalmente le he puesto otro prompt y ahora está mejor todo y que queden los quesitos y la comparativa entre clases.
+
+![alt text](image-4.png)
+

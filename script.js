@@ -22,12 +22,15 @@ const respostes = [
 const formulari = document.querySelector("#formulariEnquesta");
 const filtreGrup = document.querySelector("#filtreGrup");
 const missatgeFormulari = document.querySelector("#missatgeFormulari");
+const campPuntuacio = document.querySelector("#puntuacio");
+const titolComentaris = document.querySelector("#titolComentaris");
+let hiHaComentariRecent = false;
 
 formulari.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const grup = document.querySelector("#grup").value;
-  const puntuacioText = document.querySelector("#puntuacio").value;
+  const puntuacioText = campPuntuacio.value;
   const comentari = document.querySelector("#comentari").value.trim();
 
   if (!/^[1-5]$/.test(puntuacioText)) {
@@ -46,6 +49,8 @@ formulari.addEventListener("submit", (event) => {
   missatgeFormulari.textContent = "";
   filtreGrup.value = grup;
   formulari.reset();
+  campPuntuacio.value = "1";
+  hiHaComentariRecent = true;
   refrescarPanell();
 });
 
@@ -84,6 +89,7 @@ function refrescarPanell() {
   document.querySelector("#kpiPositives").textContent =
     estadistiques.total === 0 ? "0%" : `${estadistiques.positivesPercent.toFixed(1)}%`;
   document.querySelector("#kpiGrup").textContent = grupFiltre;
+  titolComentaris.textContent = hiHaComentariRecent ? "Comentaris més recents" : "Comentaris";
 
   refrescarGrafica(estadistiques.respostes);
   refrescarLlistat(estadistiques.respostes);
@@ -98,8 +104,8 @@ function refrescarGrafica(respostesFiltrades) {
     const amplada = total === 0 ? 0 : (quantitat / total) * 100;
 
     return `
-      <div class="barra">
-        <span>${puntuacio}/5</span>
+      <div class="barra valoracio-${puntuacio}">
+        <span>${puntuacio} ${puntuacio === 1 ? "estrella" : "estrelles"}</span>
         <div class="barra-pista">
           <div class="barra-farciment" style="width: ${amplada}%"></div>
         </div>
@@ -124,10 +130,13 @@ function refrescarLlistat(respostesFiltrades) {
     return;
   }
 
-  llista.innerHTML = respostesFiltrades.map((resposta) => `
-    <article>
-      <strong>${resposta.grup} · ${resposta["puntuació"]}/5</strong>
-      <p>${escaparHtml(resposta.comentari || "Sense comentari")}</p>
+  const respostesOrdenades = [...respostesFiltrades].sort((a, b) => new Date(b.data) - new Date(a.data));
+
+  llista.innerHTML = respostesOrdenades.map((resposta) => `
+    <article class="comentari-card valoracio-${resposta["puntuació"]}">
+      <span class="comentari-grup">${escaparHtml(resposta.grup)}</span>
+      <strong class="comentari-puntuacio">Puntuació: ${resposta["puntuació"]}/5</strong>
+      ${resposta.comentari ? `<p><strong>Comentari:</strong> ${escaparHtml(resposta.comentari)}</p>` : ""}
     </article>
   `).join("");
 }
