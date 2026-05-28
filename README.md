@@ -67,3 +67,12 @@ calcularEstadistiques(); La funció calcula les dades que hi ha al panell. El qu
 
 
 Filtre, el filtre funciona amb el select de grups. Quan l'usuari decideix cambiar de group, s'executa la funció refrescarPanell(), la funció refrescarPanell(), crida a una funció que es diu filter() per mostrar les respostes del grup que s'ha seleccionat i llavors les dades s'actualitzen.
+
+IA 3 Exercici 1 - Repositori i branca main
+
+He creat la rama dev
+
+Exercici 2 - Branca dev i treball
+
+He cambiat el TOTS i he modificat el JS de manera manual perque s'apliquin bé els canvis
+
