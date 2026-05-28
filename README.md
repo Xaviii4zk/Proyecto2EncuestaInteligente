@@ -80,3 +80,6 @@ He afegit al CSS que el contingut sigui més gran al quan mostra les dades, aque
 
 //PLANTILLA Solo quiero que ahora no toques ni javascript ni html ni readme ni otra cosa, solo quiero que me cojas el contenido que aparece en respostes, mitjana, % 4 o 5 i grup analitzat quiero que todo el contneido que hay dentro, lo hagas mas grande con una letra mas grande
 
+Exercici 3 - Pull request i merge
+
+// ESCRIT DESDE DEV, SI FUNCIONA ES VERÀ A MAIN.
