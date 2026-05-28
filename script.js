@@ -57,7 +57,7 @@ formulari.addEventListener("submit", (event) => {
 filtreGrup.addEventListener("change", refrescarPanell);
 
 function calcularEstadistiques(dades, grupFiltre) {
-  const respostesFiltrades = grupFiltre === "TOTS"
+  const respostesFiltrades = grupFiltre === "Tots els grups"
     ? dades
     : dades.filter((resposta) => resposta.grup === grupFiltre);
 
@@ -80,7 +80,7 @@ function refrescarPanell() {
   const estadistiques = calcularEstadistiques(respostes, grupFiltre);
 
   document.querySelector("#notaPanell").textContent =
-    grupFiltre === "TOTS"
+    grupFiltre === "Tots els grups"
       ? "Mostrant totes les dades."
       : `Mostrant dades del grup seleccionat al formulari: ${grupFiltre}`;
   document.querySelector("#kpiRespostes").textContent = estadistiques.total;

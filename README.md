@@ -58,3 +58,28 @@ Finalmente le he puesto otro prompt y ahora está mejor todo y que queden los qu
 
 ![alt text](image-4.png)
 
+Que fa guardarRespostes(), calcularEstadistiques() i el filtre??
+
+guardarRespostes(); S'utilitza quan l'usuari envia el formulari, gracias al preventDefault() la pagina no es carrega de nou, comprova que el comentari i la puntuació sigui entre 1 i 5 i guarda la resposta dins de l'array respostes amb el push(). Després actualitza el panell amb resfrescarPanell()
+
+
+calcularEstadistiques(); La funció calcula les dades que hi ha al panell. El que fa es filtrar les respostes segons el grup seleccionats, quan ha calculat totes les respostes segons el grup el que fa es calcular el total de respostes en general "TOTS", també calcula la mitjana de puntuacions i si el percentatge de valoracions positives es un 4 o 5. Quan ho te tot calculat el retorna les dades.
+
+
+Filtre, el filtre funciona amb el select de grups. Quan l'usuari decideix cambiar de group, s'executa la funció refrescarPanell(), la funció refrescarPanell(), crida a una funció que es diu filter() per mostrar les respostes del grup que s'ha seleccionat i llavors les dades s'actualitzen.
+
+IA 3 Exercici 1 - Repositori i branca main
+
+He creat la rama dev
+
+Exercici 2 - Branca dev i treball
+
+He cambiat el TOTS i he modificat el JS de manera manual perque s'apliquin bé els canvis
+
+He afegit al CSS que el contingut sigui més gran al quan mostra les dades, aquesta plantilla he fet servir
+
+//PLANTILLA Solo quiero que ahora no toques ni javascript ni html ni readme ni otra cosa, solo quiero que me cojas el contenido que aparece en respostes, mitjana, % 4 o 5 i grup analitzat quiero que todo el contneido que hay dentro, lo hagas mas grande con una letra mas grande
+
+Exercici 3 - Pull request i merge
+
+// ESCRIT DESDE DEV, SI FUNCIONA ES VERÀ A MAIN.
