@@ -83,3 +83,12 @@ He afegit al CSS que el contingut sigui més gran al quan mostra les dades, aque
 Exercici 3 - Pull request i merge
 
 // ESCRIT DESDE DEV, SI FUNCIONA ES VERÀ A MAIN.
+
+
+Exercici 4 - Desplegament a Vercel
+
+![alt text](image-6.png)
+
+
+
+![alt text](image-5.png)
