@@ -76,3 +76,7 @@ Exercici 2 - Branca dev i treball
 
 He cambiat el TOTS i he modificat el JS de manera manual perque s'apliquin bé els canvis
 
+He afegit al CSS que el contingut sigui més gran al quan mostra les dades, aquesta plantilla he fet servir
+
+//PLANTILLA Solo quiero que ahora no toques ni javascript ni html ni readme ni otra cosa, solo quiero que me cojas el contenido que aparece en respostes, mitjana, % 4 o 5 i grup analitzat quiero que todo el contneido que hay dentro, lo hagas mas grande con una letra mas grande
+
